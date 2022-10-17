@@ -5,8 +5,10 @@
     .pokedex {
         display: grid;
         position: relative;
-        margin: 30px 20px 0 20px;
-        width: var(--dexSize);
+        // margin: 30px 20px 0 20px;
+        // width: var(--dexSize);
+        margin: 0 2% 0 2%;
+        max-width: 96%;
     }
 
     .pokedex__img {

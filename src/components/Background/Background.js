@@ -1,15 +1,12 @@
-import { PkmDetailContainer } from "../PkmDetailContainer/PkmDetailContainer"
-import { PokedexContainer } from "../PokedexContainer/PokedexContainer"
-
+import './Background.scss'
 
 export const Background = () => {
 
 
 
     return (
-        <div>
+        <div className="background__container">
             <h1>Pokedex</h1>
-            <PokedexContainer />
         </div>
     )
 }
