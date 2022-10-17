@@ -1,0 +1,52 @@
+.desc__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    >P {
+        font-weight: bold;
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .desc__from {
+        font-style: italic;
+        font-size: 12px;
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .pokeball__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            width: 80%;
+            height: 2PX;
+            right: 10px;
+            top: 15.5px;
+            background-color: rgb(105, 105, 105);
+        }
+    }
+
+    .pokeball__container--bottom {
+        @extend .pokeball__container;
+        flex-direction: row-reverse;
+
+        &::after {
+            left: 5px;
+        }
+    }
+
+    .desk__pokeball {
+        width: 30px;
+        height: 30px;
+        position: relative;
+
+    }
+}

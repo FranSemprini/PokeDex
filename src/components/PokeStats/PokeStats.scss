@@ -1,0 +1,30 @@
+.stats__container {
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 45px;
+    }
+
+    .text__stat {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        >p {
+            margin: 10px 0 5px 0;
+        }
+    }
+
+    .stats__bar {
+        display: inline;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+}
