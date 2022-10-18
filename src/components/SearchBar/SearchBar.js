@@ -24,12 +24,11 @@ export const SearchBar = () => {
     }
 
     useEffect(() => {
-        console.log(Number(value))
         if (Number(value)) {
             search(Number(value), 'id')
 
         } else {
-            search(value, 'name')
+            search(value.toLocaleLowerCase(), 'name')
         }
         value !== pokemon && setPokemon([])
     }, [value])
