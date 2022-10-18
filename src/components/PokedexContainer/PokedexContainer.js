@@ -1,9 +1,12 @@
 import {  useEffect ,useState } from "react"
+import { usePkmContext } from "../../context/PkmContext"
 import { Pokedex } from "../Pokedex/Pokedex"
 import { Randomizer } from "../Randomizer/Randomizer"
 import "./PokedexContainer.scss"
 
 export const PokedexContainer = () => {
+
+    const {setPokemon} = usePkmContext()
 
     const [pkmnToRender, setPkmnToRender] = useState([])
 
@@ -16,8 +19,9 @@ export const PokedexContainer = () => {
             }))
             setPkmnToRender(mapPokemons)
         }
+        setPokemon(null)
         getPokemons()
-    }, [])
+    }, [setPokemon])
 
     return (
         <div className="pokedexContainer__container">

@@ -8,12 +8,10 @@ import { motion } from 'framer-motion'
 
 export const Pokedex = ({ pokemon = [] }) => {
 
-    // const { setPokemon } = usePkmContext()
-
     const pageMotion = {
-        initial: { y: -700 },
+        initial: { y: -720 },
         animate: { y: 0, transition: { duration: 1 } },
-        exit: { y: -700, transition: { duration: 1 } }
+        exit: { y: -720, transition: { duration: 1 } }
     };
 
     const navigate = useNavigate()

@@ -5,10 +5,9 @@ import { PkmDetail } from "../PkmDetail/PkmDetail"
 
 export const PkmDetailContainer = () => {
 
-
     const { pkmId } = useParams()
 
-    const { activePokemon, setPokemon } = usePkmContext(pkmId)
+    const { setPokemon } = usePkmContext(pkmId)
 
     const [pokemonSpecies, setPokemonSpecies] = useState(``)
 

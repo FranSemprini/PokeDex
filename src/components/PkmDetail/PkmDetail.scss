@@ -14,10 +14,11 @@
     
     .detail__touchToSee {
         display: flex;
-        justify-content: flex-start;
-        margin-left: 50px ;
+        justify-content: flex-end;
+        margin-right: 20px;
         align-items: flex-start;
         z-index: -1;
+        width: 100%s;
     }
     
     .detail__arrow {

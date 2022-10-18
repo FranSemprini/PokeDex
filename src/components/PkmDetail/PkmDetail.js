@@ -14,9 +14,9 @@ import { useState } from "react"
 export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
 
     const pageMotion = {
-        initial: { x: -600 },
-        animate: { x: 0, transition: { duration: 1 } },
-        exit: { x: -600, transition: { duration: 1 } }
+        initial: { x: -400, opacity:0 },
+        animate: { x: 0, opacity:1, transition: { duration: 1 } },
+        exit: { x: -300, opacity:0, transition: { duration: 1 } }
     };
 
     const color = pokemonSpecies.color.name
