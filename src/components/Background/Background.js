@@ -1,7 +1,6 @@
 import { usePkmContext } from '../../context/PkmContext'
 import { GoToPokedex } from '../GoToPokedex/GoToPokedex'
 import './Background.scss'
-
 import { AnimatePresence, motion } from "framer-motion"
 
 export const Background = () => {

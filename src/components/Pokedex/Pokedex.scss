@@ -8,22 +8,38 @@
         position: relative;
         margin: 0 2% 0 2%;
         max-width: 96%;
+        height: 100%;
     }
 
     .pokedex__img {
         width: 100%;
     }
+
+    .searchbar__container {
+        // max-width: var(--size--bar);
+        position: absolute;
+        grid-template-columns: 1fr 1fr;
+        -moz-transform: skew(-3.4deg, -1.1deg);
+        -webkit-transform: skew(-3.4deg, -1.1deg);
+        -o-transform: skew(-3.4deg, -1.1deg);
+        -ms-transform: skew(-3.4deg, -1.1deg);
+        transform: skew(-3.4deg, -1.1deg);
+        top: 28%;
+        left: 9.5%;
+        width: 75%;
+    }
+
     .pkms__container {
         position: absolute;
         top: 38%;
-        left: 12%;
+        left: 11%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        -moz-transform: skew(-3deg, -1deg);
-        -webkit-transform: skew(-3deg, -1deg);
-        -o-transform: skew(-3deg, -1deg);
-        -ms-transform: skew(-3deg, -1deg);
-        transform: skew(-3deg, -1deg);
+        -moz-transform: skew(-3.4deg, -1.1deg);
+        -webkit-transform: skew(-3.4deg, -1.1deg);
+        -o-transform: skew(-3.4deg, -1.1deg);
+        -ms-transform: skew(-3.4deg, -1.1deg);
+        transform: skew(-3.4deg, -1.1deg);
         background-color: white;
         max-width: var(--size);
         border: 1px solid #000;

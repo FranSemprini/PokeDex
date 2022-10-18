@@ -7,16 +7,17 @@ import { PokeAbilities } from "../PokeAbilities/PokeAbilities"
 import { PokeEvosContainer } from "../PokeEvosContainer/PokeEvosContainer"
 import { capitalize } from "@mui/material"
 import TurnSlightRightIcon from '@mui/icons-material/TurnSlightRight';
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import "./PkmDetail.scss"
 import { useState } from "react"
 
 export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
 
+
     const pageMotion = {
-        initial: { x: -400, opacity:0 },
-        animate: { x: 0, opacity:1, transition: { duration: 1 } },
-        exit: { x: -300, opacity:0, transition: { duration: 1 } }
+        initial: { x: -400, opacity: 0 },
+        animate: { x: 0, opacity: 1, transition: { duration: 1 } },
+        exit: { x: -300, opacity: 0, transition: { duration: 1 } }
     };
 
     const color = pokemonSpecies.color.name
@@ -37,7 +38,15 @@ export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
                 exit="exit"
                 variants={pageMotion}
             >
-                <div className="detail__touchToSee"><p>Touch the card to see more</p><div className="detail__arrow">< TurnSlightRightIcon /></div></div>
+                <AnimatePresence>
+                        <motion.div key="touchToSee"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1, transition: { duration: 1, delay: 0.8 } }}
+                            exit={{ opacity: 0, transition: { duration: 1 } }}
+                        >
+                            <div className="detail__touchToSee"><p>Touch the card to see more details</p><div className="detail__arrow">< TurnSlightRightIcon /></div></div>
+                        </motion.div>
+                </AnimatePresence>
                 <div className="flip-card" onClick={carSidedHandler}>
                     <div className={`card__container flip-card-inner ${cardSide}`}>
                         <div className="flip-card-front">
