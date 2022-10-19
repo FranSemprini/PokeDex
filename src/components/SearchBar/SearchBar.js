@@ -26,7 +26,6 @@ export const SearchBar = () => {
     useEffect(() => {
         if (Number(value)) {
             search(Number(value), 'id')
-
         } else {
             search(value.toLocaleLowerCase(), 'name')
         }
@@ -48,7 +47,7 @@ export const SearchBar = () => {
                 onChange={handleUserInput}
                 name="search"
                 type={`text`}
-                placeholder="Search"
+                placeholder="Name or id"
                 variant="outlined"
                 className="imput__form"
             />

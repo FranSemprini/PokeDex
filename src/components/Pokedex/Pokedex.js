@@ -11,7 +11,7 @@ export const Pokedex = ({ pokemon = [] }) => {
     const pageMotion = {
         initial: { y: -750 },
         animate: { y: 0, transition: { duration: 1 } },
-        exit: { y: -750, transition: { duration: 1, when:` afterParent` } }
+        exit: { y: -750, transition: { duration: 1, when: ` afterParent` } }
     };
 
     const navigate = useNavigate()
@@ -34,12 +34,10 @@ export const Pokedex = ({ pokemon = [] }) => {
                     <div className='searchbar__container'><SearchBar /></div>
                     <div className="pkms__container">
                         {pokemon.map((pkm) =>
-                            <button key={pkm.name} onClick={() => { navigate(`/pokemon/${pkm.id}`) }}>
-                                <div className="pkm__container" >
-                                    <div ><img src={pkm.sprites.front_default} alt={pkm.name}/></div>
-                                    <p key={`name${pkm.name}`}>{(pkm.name.toUpperCase()).split('-')[0]} {`#${pkm.id}`}</p>
-                                </div>
-                            </button>
+                            <div className="pkm__container" key={pkm.name} onClick={() => { navigate(`/pokemon/${pkm.id}`) }} >
+                                <div ><img src={pkm.sprites.front_default} alt={pkm.name} /></div>
+                                <p key={`name${pkm.name}`}>{(pkm.name.toUpperCase()).split('-')[0]} {`#${pkm.id}`}</p>
+                            </div>
                         )}
                     </div>
                 </div>
