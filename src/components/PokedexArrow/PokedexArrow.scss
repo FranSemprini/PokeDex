@@ -1,0 +1,14 @@
+.arrow__container {
+    &:hover .icon {
+        background-color:#c0c0c0 ;
+    }
+    .icon {
+        transition: background-color 0.1s ;
+        -webkit-box-shadow: 0px 0px 5px 1px #000000; 
+        box-shadow: 0px 0px 5px 1px #000000;
+        background-color: white;
+        width: 30px;
+        margin-top: 4px;
+        cursor: pointer;
+    }
+}

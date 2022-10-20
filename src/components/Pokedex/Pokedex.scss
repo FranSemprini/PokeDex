@@ -15,14 +15,39 @@
         width: 100%;
     }
 
+    .pokedexarrow__container {
+        position: absolute;
+        display: flex;
+        -moz-transform: skew(-3.4deg, -0.8deg);
+        -webkit-transform: skew(-3.4deg, -0.8deg);
+        -o-transform: skew(-3.4deg, -0.8deg);
+        -ms-transform: skew(-3.4deg, -0.8deg);
+        transform: skew(-3.4deg, -0.8deg);
+        top: 16%;
+        right: 28%;
+    }
+
+    .pokedexarrow__container--foward, .pokedexarrow__container--backward  {
+        position: relative;
+        grid-template-columns: 1fr 1fr;
+        left: 100%;
+        width: 100%;
+    }
+
+    .pokedexarrow__container--backward {
+        transform: rotateZ(180deg);
+        left: -9%;
+    }
+
+
     .searchbar__container {
         position: absolute;
         grid-template-columns: 1fr 1fr;
-        -moz-transform: skew(-3.4deg, -1.1deg);
-        -webkit-transform: skew(-3.4deg, -1.1deg);
-        -o-transform: skew(-3.4deg, -1.1deg);
-        -ms-transform: skew(-3.4deg, -1.1deg);
-        transform: skew(-3.4deg, -1.1deg);
+        -moz-transform: skew(-3.4deg, -0.6deg);
+        -webkit-transform: skew(-3.4deg, -0.6deg);
+        -o-transform: skew(-3.4deg, -0.6deg);
+        -ms-transform: skew(-3.4deg, -0.6deg);
+        transform: skew(-3.4deg, -0.6deg);
         top: 28%;
         left: 9.5%;
         width: 75%;
@@ -30,15 +55,15 @@
 
     .pkms__container {
         position: absolute;
-        top: 38%;
+        top: 35%;
         left: 11%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        -moz-transform: skew(-3.4deg, -1.1deg);
-        -webkit-transform: skew(-3.4deg, -1.1deg);
-        -o-transform: skew(-3.4deg, -1.1deg);
-        -ms-transform: skew(-3.4deg, -1.1deg);
-        transform: skew(-3.4deg, -1.1deg);
+        -moz-transform: skew(-3.2deg, -0.8deg);
+        -webkit-transform: skew(-3.2deg, -0.8deg);
+        -o-transform: skew(-3.2deg, -0.8deg);
+        -ms-transform: skew(-3.2deg, -0.8deg);
+        transform: skew(-3.4deg, -0.8deg);
         background-color: white;
         max-width: var(--size);
         border: 1px solid #000;
@@ -49,6 +74,11 @@
         grid-template-columns: 1fr 1fr;
         width: 100%;
         border: 1px solid #000;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover {
+            background-color: rgb(188, 188, 188);
+        }
     }
 
 }

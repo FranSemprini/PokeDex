@@ -2,13 +2,15 @@ import { useEffect, useState } from "react"
 import { usePkmContext } from "../../context/PkmContext"
 import { Pokedex } from "../Pokedex/Pokedex"
 import { Randomizer } from "../Randomizer/Randomizer"
-import "./PokedexContainer.scss"
 
-export const PokedexContainer = () => {
+export const PokedexContainer = ( ) => {
 
-    const { setPokemon } = usePkmContext()
+    const { setPokemon, activePokemon } = usePkmContext()
 
     const [pkmnToRender, setPkmnToRender] = useState([])
+
+    // const [activeOffset, setActiveOffset] = useState(activePokemon ? activePokemon.id - 4 >= 0 ? activePokemon.id - 1 : 0 : 0)
+    const [activeOffset, setActiveOffset] = useState(0)
 
     const retrieveNewPkmns = async (url) => {
         const pokeResponse = await fetch(url)
@@ -16,12 +18,21 @@ export const PokedexContainer = () => {
         return pokemon
     }
 
+    const handlePageLeft = () => {
+        activeOffset > 0 && setActiveOffset(activeOffset - 4)
+    }
+
+    const handlePageRigth = () => {
+        activeOffset <= 890 && setActiveOffset(activeOffset + 4)
+    }
+
+
     useEffect(() => {
         const getPkms = async () => {
-            const retrievePkms = await retrieveNewPkmns(`https://pokeapi.co/api/v2/pokemon/?limit=4&offset=0}`)
-            const pkmsPromise = await Promise.all(retrievePkms.results.map(async (e) => {
-                const retrievePkm = retrieveNewPkmns(e.url).then((e) => {
-                    return e
+            const retrievePkms = await retrieveNewPkmns(`https://pokeapi.co/api/v2/pokemon/?limit=4&offset=${activeOffset}}`)
+            const pkmsPromise = await Promise.all(retrievePkms.results.map((pk) => {
+                const retrievePkm = retrieveNewPkmns(pk.url).then((pk) => {
+                    return pk
                 })
                 return retrievePkm
             }))
@@ -38,11 +49,11 @@ export const PokedexContainer = () => {
         // }
         //     getPokemons()
         setPokemon(null)
-    }, [pkmnToRender])
+    }, [pkmnToRender, activeOffset])
 
     return (
         <div className="pokedexContainer__container">
-            <Pokedex pokemon={pkmnToRender} />
+            <Pokedex pokemon={pkmnToRender} handlePageLeft={handlePageLeft} handlePageRigth={handlePageRigth} />
         </div>
     )
 }
