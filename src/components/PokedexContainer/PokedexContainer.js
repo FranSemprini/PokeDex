@@ -3,14 +3,28 @@ import { usePkmContext } from "../../context/PkmContext"
 import { Pokedex } from "../Pokedex/Pokedex"
 import { Randomizer } from "../Randomizer/Randomizer"
 
-export const PokedexContainer = ( ) => {
+export const PokedexContainer = () => {
 
     const { setPokemon, activePokemon } = usePkmContext()
 
     const [pkmnToRender, setPkmnToRender] = useState([])
 
-    // const [activeOffset, setActiveOffset] = useState(activePokemon ? activePokemon.id - 4 >= 0 ? activePokemon.id - 1 : 0 : 0)
-    const [activeOffset, setActiveOffset] = useState(0)
+// FIX THIS
+    const calculateOffset = () => {
+        if (activePokemon) {
+            if ((activePokemon.id % 4) === 0) {
+                return(activePokemon.id - 4)
+            } else if ((activePokemon.id % 4) - 3 === 0) {
+                return(activePokemon.id - 3)
+            } else if ((activePokemon.id % 4) - 2 === 0) {
+                return(activePokemon.id - 2)
+            } else if ((activePokemon.id % 4) - 1 === 0) {
+                return(activePokemon.id - 1)
+            }
+        }
+    }
+    
+    const [activeOffset, setActiveOffset] = useState(activePokemon ? calculateOffset() : 0)
 
     const retrieveNewPkmns = async (url) => {
         const pokeResponse = await fetch(url)
@@ -48,6 +62,7 @@ export const PokedexContainer = ( ) => {
         //     setPkmnToRender(mapPokemons)
         // }
         //     getPokemons()
+        // calculateOffset()
         setPokemon(null)
     }, [pkmnToRender, activeOffset])
 
