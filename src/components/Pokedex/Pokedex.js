@@ -41,10 +41,10 @@ export const Pokedex = ({ pokemon = [], handlePageLeft, handlePageRigth, loaded,
                         {pokemon.map((pkm) =>
                             <div className="pkm__container" key={pkm.name} onClick={() => { navigate(`/pokemon/${pkm.id}`) }} >
                                 <p>{(pkm.name.toUpperCase()).split('-')[0]}</p>
-                                <div> <img className='pkm__img' style={{ display: loaded ? 'unset' : 'none' }} onLoad={onLoad} src={pkm.sprites.front_default} alt={pkm.name} />
-                                    {!loaded && <CircularProgress color="secondary" />}
-                                </div>
                                 <p> {`#${pkm.id}`}</p>
+                                <div> <img className='pkm__img' style={{ display: loaded ? 'unset' : 'none' }} onLoad={onLoad} src={pkm.sprites.front_default} alt={pkm.name} />
+                                </div>
+                                {!loaded && <div className='progress__container'><CircularProgress color="secondary"/></div>}
                             </div>
                         )}
                     </div>

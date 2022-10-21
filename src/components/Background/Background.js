@@ -6,7 +6,7 @@ export const Background = () => {
 
     return (
         <div className="background__container">
-            <img className='pokelogo' src={pokemonLogo} /> 
+            <img className='pokelogo' alt='Pokemon' src={pokemonLogo} /> 
         </div>
     )
 }
