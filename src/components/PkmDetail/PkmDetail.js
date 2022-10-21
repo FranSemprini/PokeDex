@@ -7,12 +7,13 @@ import { PokeAbilities } from "../PokeAbilities/PokeAbilities"
 import { PokeEvosContainer } from "../PokeEvosContainer/PokeEvosContainer"
 import { capitalize } from "@mui/material"
 import TurnSlightRightIcon from '@mui/icons-material/TurnSlightRight';
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import "./PkmDetail.scss"
 import { useState } from "react"
+import { GoToPokedex } from "../GoToPokedex/GoToPokedex"
+import { useMediaQuery } from 'react-responsive'
 
 export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
-
 
     const pageMotion = {
         initial: { x: -400, opacity: 0 },
@@ -20,6 +21,9 @@ export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
         exit: { x: -300, opacity: 0, transition: { duration: 1 } }
     };
 
+
+
+    const isDesktop = useMediaQuery({ query: '(min-width: 1023px)' })
     const color = pokemonSpecies.color.name
     const root = document.documentElement;
     root.style.setProperty('--pokeBkg-color', color)
@@ -32,21 +36,27 @@ export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
 
     return (
         <div className="pokemonDetail__container">
+            {!isDesktop && <motion.div key="button" className="goToPokedex__container"
+                initial={{ x: -300 }}
+                animate={{ x: -50, transition: { duration: 1, delay: 0.8 } }}
+                exit={{ x: -200, transition: { duration: 0.5 } }}
+            >
+                <GoToPokedex />
+            </motion.div>}
+
             <motion.div
                 initial="initial"
                 animate="animate"
                 exit="exit"
                 variants={pageMotion}
             >
-                <AnimatePresence>
-                        <motion.div key="touchToSee"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1, transition: { duration: 1, delay: 0.8 } }}
-                            exit={{ opacity: 0, transition: { duration: 1 } }}
-                        >
-                            <div className="detail__touchToSee"><p>Touch the card to see more details</p><div className="detail__arrow">< TurnSlightRightIcon /></div></div>
-                        </motion.div>
-                </AnimatePresence>
+                <motion.div key="touchToSee"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, transition: { duration: 1, delay: 0.8 } }}
+                    exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                >
+                    <div className="detail__touchToSee"><p>Touch the card to see more details</p><div className="detail__arrow">< TurnSlightRightIcon /></div></div>
+                </motion.div>
                 <div className="flip-card" onClick={carSidedHandler}>
                     <div className={`card__container flip-card-inner ${cardSide}`}>
                         <div className="flip-card-front">
@@ -91,5 +101,4 @@ export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
             </motion.div>
         </div>
     )
-
 }
