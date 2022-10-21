@@ -39,7 +39,6 @@
         left: -9%;
     }
 
-
     .searchbar__container {
         position: absolute;
         grid-template-columns: 1fr 1fr;
@@ -65,9 +64,10 @@
         -ms-transform: skew(-3.2deg, -0.8deg);
         transform: skew(-3.4deg, -0.8deg);
         background-color: white;
-        max-width: var(--size);
+        width: var(--size);
+        height: 275px;
         border: 1px solid #000;
-        width: 100%;
+        // width: 100%;
     } 
 
     .pkm__container {
@@ -79,6 +79,9 @@
         &:hover {
             background-color: rgb(188, 188, 188);
         }
+    }
+    .pkm__img {
+        height: 90px;
     }
 
 }

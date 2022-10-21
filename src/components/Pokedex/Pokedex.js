@@ -5,8 +5,9 @@ import { useCurrentWidth } from "../../hooks/getWidth"
 import { motion } from 'framer-motion'
 import { SearchBar } from '../SearchBar/SearchBar'
 import { PokedexArrow } from '../PokedexArrow/PokedexArrow'
+import { CircularProgress } from '@mui/material'
 
-export const Pokedex = ({ pokemon = [], handlePageLeft, handlePageRigth }) => {
+export const Pokedex = ({ pokemon = [], handlePageLeft, handlePageRigth, loaded, onLoad }) => {
 
     const pageMotion = {
         initial: { y: -750 },
@@ -40,7 +41,9 @@ export const Pokedex = ({ pokemon = [], handlePageLeft, handlePageRigth }) => {
                         {pokemon.map((pkm) =>
                             <div className="pkm__container" key={pkm.name} onClick={() => { navigate(`/pokemon/${pkm.id}`) }} >
                                 <p>{(pkm.name.toUpperCase()).split('-')[0]}</p>
-                                <div ><img src={pkm.sprites.front_default} alt={pkm.name} /></div>
+                                <div> <img className='pkm__img' style={{ display: loaded ? 'unset' : 'none' }} onLoad={onLoad} src={pkm.sprites.front_default} alt={pkm.name} />
+                                    {!loaded && <CircularProgress color="secondary" />}
+                                </div>
                                 <p> {`#${pkm.id}`}</p>
                             </div>
                         )}

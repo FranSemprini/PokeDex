@@ -9,6 +9,12 @@ export const PokedexContainer = () => {
 
     const [pkmnToRender, setPkmnToRender] = useState([])
 
+    const [loaded, setLoaded] = useState(false)
+
+    const onLoad = () => {
+        setLoaded(true);
+    }
+
 // FIX THIS
     const calculateOffset = () => {
         if (activePokemon) {
@@ -34,12 +40,13 @@ export const PokedexContainer = () => {
 
     const handlePageLeft = () => {
         activeOffset > 0 && setActiveOffset(activeOffset - 4)
+        setLoaded(false)
     }
 
     const handlePageRigth = () => {
         activeOffset <= 890 && setActiveOffset(activeOffset + 4)
+        setLoaded(false)
     }
-
 
     useEffect(() => {
         const getPkms = async () => {
@@ -64,11 +71,11 @@ export const PokedexContainer = () => {
         //     getPokemons()
         // calculateOffset()
         setPokemon(null)
-    }, [pkmnToRender, activeOffset])
+    }, [activeOffset])
 
     return (
         <div className="pokedexContainer__container">
-            <Pokedex pokemon={pkmnToRender} handlePageLeft={handlePageLeft} handlePageRigth={handlePageRigth} />
+            <Pokedex pokemon={pkmnToRender} handlePageLeft={handlePageLeft} handlePageRigth={handlePageRigth} loaded={loaded} onLoad={onLoad} />
         </div>
     )
 }
