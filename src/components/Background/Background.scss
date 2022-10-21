@@ -1,7 +1,22 @@
 .background__container {
     margin: 10px 0;
     height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
     .pokelogo {
-        width: 300px;
+        width: 200px;
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 1023px) {
+    .background__container {
+        justify-content: center;
+        .pokelogo {
+            width: 300px;
+            margin-right: 0;
+        }
     }
 }
