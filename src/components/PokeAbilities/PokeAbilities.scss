@@ -1,17 +1,20 @@
 .pokeData__abilities {
-    > h3 {
+    >h3 {
         color: white;
     }
+
     background-color: white;
     width: 100%;
     position: relative;
     border-radius: 5px;
     z-index: 1;
     padding-bottom: 5px;
+    
     >h3 {
         height: 30px;
         color: #ffffff;
         z-index: 5;
+        padding: 5px 0;
     }
 
     &::before {
@@ -24,12 +27,14 @@
         left: 0;
         z-index: -1;
     }
+
     .abilities {
         display: flex;
         gap: 15px;
         justify-content: center;
         flex-wrap: wrap;
     }
+
     .ability {
         margin: 5px 0;
         border-left: solid 8px red;
@@ -42,5 +47,3 @@
         font-size: 13px;
     }
 }
-
-

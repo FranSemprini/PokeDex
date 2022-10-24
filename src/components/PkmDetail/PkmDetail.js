@@ -21,8 +21,6 @@ export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
         exit: { x: -300, opacity: 0, transition: { duration: 1 } }
     };
 
-
-
     const isDesktop = useMediaQuery({ query: '(min-width: 1023px)' })
     const color = pokemonSpecies.color.name
     const root = document.documentElement;
@@ -87,7 +85,7 @@ export const PkmDetail = ({ pkmToRender, pokemonSpecies }) => {
                                 </div>
                                 <div className="pokemonDetail__thirdRow">
                                     <div className="pokemonDetail__thirdRowL">
-                                        <PokeData exp={pkmToRender.base_experience} height={pkmToRender.height * 10} weight={pkmToRender.weight} abilities={pkmToRender.abilities} capture_rate={pokemonSpecies.capture_rate} abitat={pokemonSpecies.habitat ? pokemonSpecies.habitat.name : `Unknown`} />
+                                        <PokeData exp={pkmToRender.base_experience} height={pkmToRender.height * 10} weight={pkmToRender.weight} abitat={pokemonSpecies.habitat ? pokemonSpecies.habitat.name : `Unknown`} />
                                         <PokeAbilities abilities={pkmToRender.abilities} />
                                     </div>
                                 </div>

@@ -1,7 +1,7 @@
 import { capitalize } from "@mui/material"
 import "./PokeData.scss"
 
-export const PokeData = ({ exp, height, weight, abilities, capture_rate, abitat }) => {
+export const PokeData = ({ exp, height, weight, abitat }) => {
 
     return (
         <div className="pokeData__container">
